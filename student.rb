@@ -1,12 +1,16 @@
-class Student
-attr_reader :first_name, :last_name, :grade
 
-def initialize(first_name, last_name, grade)
-	@first_name = first_name
-	@last_name = last_name
-	@grade = grade
-end
+#Student = Struct.new(:first_name,:last_name,:grade) do
+#def to_s
+#	"#{first_name} #{last_name} #{grade}"
+#end
+#def senior?
+#	grade == 12
+#end
 
+#end
+
+
+class Student < Struct.new(:first_name,:last_name,:grade) do
 def to_s
 	"#{first_name} #{last_name} #{grade}"
 end
@@ -15,6 +19,8 @@ def senior?
 end
 
 end
+
+
 def seniors(students)
 	senior_students = []
 	senior_students = students.select{|s| s.senior?}
